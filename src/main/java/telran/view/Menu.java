@@ -4,16 +4,17 @@ import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class Menu implements Item {
-private static final String CHARACTER = "*";
-private static final int N_CHARACTER = 30;
-private static final int OFFSET = 7;
-String name;
-Item[] items;
+	private static final String CHARACTER = "*";
+	private static final int N_CHARACTER = 30;
+	private static final int OFFSET = 7;
+	
+	String name;
+	Item[] items;
 
 	public Menu(String name, Item[] items) {
-	this.name = name;
-	this.items = items;
-}
+		this.name = name;
+		this.items = items;
+	}
 
 	@Override
 	public String displayName() {
@@ -24,9 +25,9 @@ Item[] items;
 	@Override
 	public void perform(InputOutput io) {
 		boolean running = true;
-		displayTitle(io);
+		
 		do {
-			
+			displayTitle(io);
 			displayItems(io);
 			int itemNumber = io.readNumberRange("Enter item number", "Not existing item",
 					1, items.length).intValue();
